@@ -2,13 +2,26 @@
 
 <head>
     <script>
+        function clac() {
+            var a = document.getElementById('textfild1').value;
+            a = Number(a);
+            var b = document.getElementById('textfild2').value;
+            b = Number(b);
+            var c = a(a / b) * 100;
+            document.getElementById('textfild3').value = c;
 
+
+        }
     </script>
 </head>
 
 <body>
-    <button>計算</button>
-    <input type="text">
+
+    <p>勝数：</p> <input id="textfild1" type="text">
+    <p>負数：</p> <input id="textfild2" type="text">
+    <br>
+    <button onclick="clac()"> 計算</button>
+    <input id="textfild2" type="text">
 </body>
 
 </html>
