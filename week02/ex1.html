@@ -2,26 +2,23 @@
 
 <head>
     <script>
-        function clac() {
-            var a = document.getElementById('textfild1').value;
+        function calculate() {
+            var a = document.getElementById('win-count').value;
             a = Number(a);
-            var b = document.getElementById('textfild2').value;
+            var b = document.getElementById('lose-count').value;
             b = Number(b);
-            var c = a(a / b) * 100;
-            document.getElementById('textfild3').value = c;
-
-
+            var c = a / (a + b) * 100;
+            document.getElementById('win-rate').value = c;
         }
     </script>
 </head>
 
 <body>
-
-    <p>勝数：</p> <input id="textfild1" type="text">
-    <p>負数：</p> <input id="textfild2" type="text">
+    <p>勝数：</p> <input id="win-count" type="text" value=""><br>
+    <p>負数：</p> <input id="lose-count" type="text" value=""><br>
     <br>
-    <button onclick="clac()"> 計算</button>
-    <input id="textfild2" type="text">
+    <button onclick="calculate()"> 計算</button>
+    勝率は<input id="win-rate" type="text">％です
 </body>
 
 </html>
