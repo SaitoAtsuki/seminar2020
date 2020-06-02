@@ -1,0 +1,28 @@
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <script>
+        function random() {
+
+            var html = '';
+            for (var i = 1; i <= 10; i++) {
+                var n = Math.floor(Math.random() * 6) + 1
+                html = html + '<li>' + n + '</li>';
+            }
+            document.getElementById('list1').innerHTML = html;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>課題11-1</h1>
+    <button onclick="random()">乱数生成</button>
+    <hr>
+    <ul id="list1">
+        <li></li>
+    </ul>
+
+</body>
+
+</html>
