@@ -9,25 +9,26 @@
             var b = document.getElementById('input-interest').value;
             b = Number(b);
             var html = '';
+            var sum = a;
             for (var i = 1; i <= 10; i++) {
                 html = html + '<table border="1">';
                 html = html + '<tr>';
                 html = html + '<td>' + i + '</td>';
-                var sum = a + a * 0.01;
+                var sum = sum + sum * b * 0.01;
                 html = html + '<td>' + sum + '</td>';
                 html = html + '</tr>';
             }
             html = html + '</table>';
-        }
-        document.getElementById('table1').innerHTML = html;
+            document.getElementById('table1').innerHTML = html;
         }
     </script>
 </head>
 
 <body>
     <h1>課題11-5</h1>
-    <p>元金</p> <input id="input-base" type="text" value=""><br>
+    <p>元金</p> <input id="input-base" type="text" value="">
     <p>利率</p> <input id="input-interest" type="text" value="">%<br>
+
     <button onclick="buttonPressed()">計算</button>
     <hr>
     <div id="table1"> </div>
