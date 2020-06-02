@@ -1,0 +1,28 @@
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <script>
+        function calc() {
+            var a = document.getElementById('num').value;
+            a = Number(a);
+            var html = '';
+            for (var i = 1; i <= a; i++) {
+                html = html + '<li>' + n + '</li>';
+            }
+            document.getElementById('list1').innerHTML = html;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>課題11-2</h1>
+    <p>求める回数は</p> <input id="num" type="text" value=""><br>
+    <button onclick="culc()">計算</button>
+    <hr>
+    <ul id="list1">
+        <li></li>
+    </ul>
+</body>
+
+</html>
