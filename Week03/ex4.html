@@ -1,0 +1,30 @@
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <script>
+        function culc() {
+            var html = '';
+            for (var j = 1; j <= 9; j++) {
+                for (var i = 1; i <= 9; i++) {
+                    html = html + '<table border="1">';
+                    html = html + '<tr>';
+                    html = html + '<td>' + i * j + '</td>';
+                    html = html + '</tr>';
+                    html = html + '</table>';
+                }
+
+            }
+            document.getElementById('list1').innerHTML = html;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>課題11-4</h1>
+    <button onclick="culc()">計算</button>
+    <hr>
+    <div id="list1"> </div>
+</body>
+
+</html>
