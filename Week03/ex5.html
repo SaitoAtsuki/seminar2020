@@ -10,11 +10,16 @@
             b = Number(b);
             var html = '';
             var sum = a;
+            html = html + '<table border="1">';
+            html = html + '<tr>';
+            html = html + '<td>年後</td>';
+            html = html + '<td>元利合計</td>';
+            html = html + '</tr>';
             for (var i = 1; i <= 10; i++) {
-                html = html + '<table border="1">';
                 html = html + '<tr>';
                 html = html + '<td>' + i + '</td>';
-                var sum = sum + sum * b * 0.01;
+                var sum = sum * (1 + b * 0.01);
+                sum = Math.round(sum);
                 html = html + '<td>' + sum + '</td>';
                 html = html + '</tr>';
             }
