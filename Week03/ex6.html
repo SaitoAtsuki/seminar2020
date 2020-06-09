@@ -1,0 +1,35 @@
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <script>
+        function buttonStartPressed() {
+            var n = Math.floor(Math.random() * 19) + 1;
+        }
+        function buttonAnswerPressed() {
+            var a = document.getElementById('input-number').value;
+            a = Number(a);
+            if (n == a) {
+                "output-result".Text("あたり！");
+            }
+            else if (n > a) {
+                //Text("はずれ！ それより小さいです");
+            }
+            else {
+                //    Text("はずれ！ それより 大きいです");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>課題11-A：数あてゲーム</h1>
+    <button onclick="buttonStartPressed()">Start</button><br>
+    回答:<input id="input-number" type="text">
+    <button onclick="buttonAnswerPressed()">回答</button>
+    <hr>
+    <p id="output-result">数あてゲームを開始するには, Startボタンを押してください</p>
+
+</body>
+
+</html>
