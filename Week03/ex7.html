@@ -1,0 +1,53 @@
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <script>
+        function buttonPressed() {
+            for (var i = 1; i <= 10001; i++) {
+                var n = Math.floor(Math.random() * 5) + 1;
+                var sum1, sum2, sum3, sum4, sum5, sum6 = 0;
+                if (n == 1) {
+                    sum1 = sum1 + 1;
+                }
+                else if (n == 2) {
+                    sum2 = sum2 + 1;
+                }
+                else if (n == 3) {
+                    sum3 = sum3 + 1;
+                }
+                else if (n == 4) {
+                    sum4 = sum4 + 1;
+                }
+                else if (n == 5) {
+                    sum5 = sum5 + 1;
+                }
+                else if (n == 6) {
+                    sum6 = sum6 + 1;
+                }
+            }
+            document.getElementById("output-1").innerText = "sum1";
+            document.getElementById("output-2").innerText = "sum2";
+            document.getElementById("output-3").innerText = "sum3";
+            document.getElementById("output-4").innerText = "sum4";
+            document.getElementById("output-5").innerText = "sum5";
+            document.getElementById("output-6").innerText = "sum6";
+        }
+    </script>
+</head>
+
+<body>
+    <h1>課題11-B：乱数の分布調査</h1>
+    試行回数:<input id="input-number" type="text" value="100">
+    <button onclick="buttonPressed()">試行</button>
+    <hr>
+    1:<input id="output-1" type="text" value="0"><br>
+    2:<input id="output-2" type="text" value="0"><br>
+    3:<input id="output-3" type="text" value="0"><br>
+    4:<input id="output-4" type="text" value="0"><br>
+    5:<input id="output-5" type="text" value="0"><br>
+    6:<input id="output-6" type="text" value="0"><br>
+
+</body>
+
+</html>
