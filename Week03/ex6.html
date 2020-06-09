@@ -3,23 +3,30 @@
 <head>
     <meta charset="utf-8" />
     <script>
+        var random = buttonStartPressed();
         function buttonStartPressed() {
             var n = Math.floor(Math.random() * 19) + 1;
+            return n;
         }
         function buttonAnswerPressed() {
-            var n = Math.floor(Math.random() * 19) + 1;
+
             var a = document.getElementById('input-number').value;
             a = Number(a);
-            if (n == a) {
+            if (a <= 0 || 21 <= a) {
+                document.getElementById("output-result").innerText = "範囲外の値です";
+            }
+            else if (random == a) {
                 document.getElementById("output-result").innerText = "あたり！";
             }
-            else if (n > a) {
-                document.getElementById("output-result").innerText = "はずれ！それより小さいです";
-            }
-            else {
+            else if (a < random && a < 20) {
                 document.getElementById("output-result").innerText = "はずれ！それより大きいです";
             }
+            else if (random < a && a > 1) {
+                document.getElementById("output-result").innerText = "はずれ！それより小さいです";
+            }
+
         }
+
     </script>
 </head>
 
