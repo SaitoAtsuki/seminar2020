@@ -7,16 +7,17 @@
             var n = Math.floor(Math.random() * 19) + 1;
         }
         function buttonAnswerPressed() {
+            var n = Math.floor(Math.random() * 19) + 1;
             var a = document.getElementById('input-number').value;
             a = Number(a);
             if (n == a) {
-                "output-result".Text("あたり！");
+                document.getElementById("output-result").innerText = "あたり！";
             }
             else if (n > a) {
-                //Text("はずれ！ それより小さいです");
+                document.getElementById("output-result").innerText = "はずれ！それより小さいです";
             }
             else {
-                //    Text("はずれ！ それより 大きいです");
+                document.getElementById("output-result").innerText = "はずれ！それより大きいです";
             }
         }
     </script>
