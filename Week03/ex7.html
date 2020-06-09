@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <script>
         function buttonPressed() {
-            for (var i = 1; i <= 10001; i++) {
+            for (var i = 1; i <= 101; i++) {
                 var n = Math.floor(Math.random() * 5) + 1;
                 var sum1, sum2, sum3, sum4, sum5, sum6 = 0;
                 if (n == 1) {
@@ -25,13 +25,14 @@
                 else if (n == 6) {
                     sum6 = sum6 + 1;
                 }
+
             }
-            document.getElementById("output-1").innerText = "sum1";
-            document.getElementById("output-2").innerText = "sum2";
-            document.getElementById("output-3").innerText = "sum3";
-            document.getElementById("output-4").innerText = "sum4";
-            document.getElementById("output-5").innerText = "sum5";
-            document.getElementById("output-6").innerText = "sum6";
+            document.getElementById("output-1").value = "sum1";
+            document.getElementById("output-2").value = "sum2";
+            document.getElementById("output-3").value = "sum3";
+            document.getElementById("output-4").value = "sum4";
+            document.getElementById("output-5").value = "sum5";
+            document.getElementById("output-6").value = "sum6";
         }
     </script>
 </head>
