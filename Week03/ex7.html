@@ -4,9 +4,17 @@
     <meta charset="utf-8" />
     <script>
         function buttonPressed() {
-            for (var i = 1; i <= 101; i++) {
-                var n = Math.floor(Math.random() * 5) + 1;
-                var sum1, sum2, sum3, sum4, sum5, sum6 = 0;
+            var a = document.getElementById('input-number').value;
+            a = Number(a);
+            // var sum1, sum2, sum3, sum4, sum5, sum6 = 0;
+            var sum1 = 0;
+            var sum2 = 0;
+            var sum3 = 0;
+            var sum4 = 0;
+            var sum5 = 0;
+            var sum6 = 0;
+            for (var i = 0; i < a; i++) {
+                var n = Math.floor(Math.random() * 6) + 1;
                 if (n == 1) {
                     sum1 = sum1 + 1;
                 }
@@ -25,14 +33,30 @@
                 else if (n == 6) {
                     sum6 = sum6 + 1;
                 }
-
             }
-            document.getElementById("output-1").value = "sum1";
-            document.getElementById("output-2").value = "sum2";
-            document.getElementById("output-3").value = "sum3";
-            document.getElementById("output-4").value = "sum4";
-            document.getElementById("output-5").value = "sum5";
-            document.getElementById("output-6").value = "sum6";
+            document.getElementById('output-1').value = sum1;
+            var r1 = sum1 / a;
+            document.getElementById('raito-1').value = r1;
+
+            document.getElementById('output-2').value = sum2;
+            var r2 = sum2 / a;
+            document.getElementById('raito-2').value = r2;
+
+            document.getElementById("output-3").value = sum3;
+            var r3 = sum3 / a;
+            document.getElementById('raito-3').value = r3;
+
+            document.getElementById("output-4").value = sum4;
+            var r4 = sum4 / a;
+            document.getElementById('raito-4').value = r4;
+
+            document.getElementById("output-5").value = sum5;
+            var r5 = sum5 / a;
+            document.getElementById('raito-5').value = r5;
+
+            document.getElementById("output-6").value = sum6;
+            var r6 = sum6 / a;
+            document.getElementById('raito-6').value = r6;
         }
     </script>
 </head>
@@ -42,12 +66,18 @@
     試行回数:<input id="input-number" type="text" value="100">
     <button onclick="buttonPressed()">試行</button>
     <hr>
-    1:<input id="output-1" type="text" value="0"><br>
-    2:<input id="output-2" type="text" value="0"><br>
-    3:<input id="output-3" type="text" value="0"><br>
-    4:<input id="output-4" type="text" value="0"><br>
-    5:<input id="output-5" type="text" value="0"><br>
-    6:<input id="output-6" type="text" value="0"><br>
+    1:<input id="output-1" type="text" value="0">
+    1の割合:<input id="raito-1"" type=" text" value=""><br>
+    2:<input id="output-2" type="text" value="0">
+    2の割合:<input id="raito-2"" type=" text" value=""><br>
+    3:<input id="output-3" type="text" value="0">
+    3の割合:<input id="raito-3"" type=" text" value=""><br>
+    4:<input id="output-4" type="text" value="0">
+    4の割合:<input id="raito-4"" type=" text" value=""><br>
+    5:<input id="output-5" type="text" value="0">
+    5の割合:<input id="raito-5"" type=" text" value=""><br>
+    6:<input id="output-6" type="text" value="0">
+    6の割合:<input id="raito-6"" type=" text" value=""><br>
 
 </body>
 
