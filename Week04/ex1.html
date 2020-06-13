@@ -9,10 +9,14 @@
             ctx.fillstyle = '#0000FF';
 
             ctx.beginPath();
-            var x = Math.random(400);
-            var y = Math.floor(Math.random(300));
+            var x = Math.floor(Math.random() * 400);
+            var y = Math.floor(Math.random() * 300);
             ctx.arc(x, y, 5, 0, Math.PI * 2);
             ctx.fill();
+        }
+        function buttonBPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
         }
     </script>
 </head>
