@@ -1,0 +1,59 @@
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <script>
+        var White_X = 40;
+        var White_Y = 40;
+        var Black_X = 80;
+        var Black_Y = 80;
+        function buttonUpPressed() {
+
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.fillStyle = '#000000';
+            White_Y = White_Y - 20
+            ctx.beginPath();
+            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
+            ctx.fill();
+
+            var x = Math.floor(Math.random() * 4);
+            if (x == 0) {
+                Black_X = Black_X - 20;
+            }
+            else if (x == 1) {
+                Black_X = Black_X + 20;
+            }
+            else if (x == 2) {
+                Black_Y = Black_Y - 20;
+            }
+            else {
+                Black_Y = Black_Y + 20;
+            }
+            ctx.beginPath();
+            ctx.arc(Black_X, Black_Y, 5, 0, Math.PI * 2);
+            ctx.stroke();
+
+        }
+        function buttonLeftPressed() {
+        }
+        function buttonRightPressed() {
+        }
+        function buttonDownPressed() {
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <div style="position:relative; height:50px;">
+        <button style="position:absolute; left: 30px; top: 0px;" onclick="buttonUpPressed()">↑</button>
+        <button style="position:absolute; left: 10px; top: 15px;" onclick="buttonLeftPressed()">←</button>
+        <button style="position:absolute; left: 50px; top: 15px;" onclick="buttonRightPressed()">→</button>
+        <button style="position:absolute; left: 30px; top: 30px;" onclick="buttonDownPressed()">↓</button>
+    </div>
+    <hr>
+    <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
+</body>
+
+</html>
