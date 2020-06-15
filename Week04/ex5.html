@@ -7,6 +7,7 @@
         var White_Y = 40;
         var Black_X = 80;
         var Black_Y = 80;
+        var step = 0;
         function buttonUpPressed() {
             var ctx = document.getElementById('canvas1').getContext('2d');
             ctx.clearRect(0, 0, 400, 300);
@@ -32,6 +33,7 @@
             ctx.beginPath();
             ctx.arc(Black_X, Black_Y, 5, 0, Math.PI * 2);
             ctx.fill();
+            step = step + 1;
 
         }
         function buttonLeftPressed() {
@@ -59,6 +61,7 @@
             ctx.beginPath();
             ctx.arc(Black_X, Black_Y, 5, 0, Math.PI * 2);
             ctx.fill();
+            step = step + 1;
         }
         function buttonRightPressed() {
             var ctx = document.getElementById('canvas1').getContext('2d');
@@ -85,6 +88,7 @@
             ctx.beginPath();
             ctx.arc(Black_X, Black_Y, 5, 0, Math.PI * 2);
             ctx.fill();
+            step = step + 1;
         }
         function buttonDownPressed() {
             var ctx = document.getElementById('canvas1').getContext('2d');
@@ -111,10 +115,22 @@
             ctx.beginPath();
             ctx.arc(Black_X, Black_Y, 5, 0, Math.PI * 2);
             ctx.fill();
+            step = step + 1;
         }
-        if (White_X == Black_X && White_Y == Black_Y) {
-            var text = 'CLEAR!!';
+        function judgge() {
+            if (White_X == Black_X && White_Y == Black_Y) {
+                var text = 'CLEAR!!';
+                document.getElementById('result').innerText = text;
+            }
+            else
+                var text = 'NOT CLEAR…';
             document.getElementById('result').innerText = text;
+
+            document.getElementById('list1').innerHTML = White_X;
+            document.getElementById('list2').innerHTML = White_Y;
+            document.getElementById('list3').innerHTML = Black_X;
+            document.getElementById('list4').innerHTML = Black_Y;
+            document.getElementById('times').innerHTML = step + '回';
         }
 
     </script>
@@ -127,7 +143,18 @@
         <button style="position:absolute; left: 50px; top: 15px;" onclick="buttonRightPressed()">→</button>
         <button style="position:absolute; left: 30px; top: 30px;" onclick="buttonDownPressed()">↓</button>
     </div>
-    <label style="position:absolute; left: 150px; top: 25px;" id='result' type="text">挑戦中!</label>
+
+    <label style="position:absolute; left: 550px; top: 20px;" id='result' type="text">挑戦中!</label>
+    <label style="position:absolute; left: 700px; top: 20px;" id='times' type="text">記録</label>
+    <p style="position:absolute; left: 280px; top: 0px;">White_X:</p>
+    <p style="position:absolute; left: 350px; top: 0px;" id='list1' type="text" value=""></p>
+    <p style="position:absolute; left: 380px; top: 0px;">White_Y:</p>
+    <p style="position:absolute; left: 450px; top: 0px;" id='list2' type="text" value=""></p>
+    <p style="position:absolute; left: 280px; top: 20px;">Black_X:</p>
+    <p style="position:absolute; left: 350px; top: 20px;" id='list3' type="text" value=""></p>
+    <p style="position:absolute; left: 380px; top: 20px;">Black_Y:</p>
+    <p style="position:absolute; left: 450px; top: 20px;" id='list4' type="text" value=""></p>
+    <button style="position:absolute; left: 150px; top: 20px;" onclick="judgge()">判定</button>
     <hr>
     <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
 </body>
