@@ -8,13 +8,13 @@
         var Black_X = 80;
         var Black_Y = 80;
         function buttonUpPressed() {
-
             var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
             ctx.fillStyle = '#000000';
-            White_Y = White_Y - 20
+            White_Y = White_Y - 20;
             ctx.beginPath();
             ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
-            ctx.fill();
+            ctx.stroke();
 
             var x = Math.floor(Math.random() * 4);
             if (x == 0) {
@@ -31,16 +31,91 @@
             }
             ctx.beginPath();
             ctx.arc(Black_X, Black_Y, 5, 0, Math.PI * 2);
-            ctx.stroke();
+            ctx.fill();
 
         }
         function buttonLeftPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+            ctx.fillStyle = '#000000';
+            White_X = White_X - 20;
+            ctx.beginPath();
+            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
+            ctx.stroke();
+
+            var x = Math.floor(Math.random() * 4);
+            if (x == 0) {
+                Black_X = Black_X - 20;
+            }
+            else if (x == 1) {
+                Black_X = Black_X + 20;
+            }
+            else if (x == 2) {
+                Black_Y = Black_Y - 20;
+            }
+            else {
+                Black_Y = Black_Y + 20;
+            }
+            ctx.beginPath();
+            ctx.arc(Black_X, Black_Y, 5, 0, Math.PI * 2);
+            ctx.fill();
         }
         function buttonRightPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+            ctx.fillStyle = '#000000';
+            White_X = White_X + 20;
+            ctx.beginPath();
+            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
+            ctx.stroke();
+
+            var x = Math.floor(Math.random() * 4);
+            if (x == 0) {
+                Black_X = Black_X - 20;
+            }
+            else if (x == 1) {
+                Black_X = Black_X + 20;
+            }
+            else if (x == 2) {
+                Black_Y = Black_Y - 20;
+            }
+            else {
+                Black_Y = Black_Y + 20;
+            }
+            ctx.beginPath();
+            ctx.arc(Black_X, Black_Y, 5, 0, Math.PI * 2);
+            ctx.fill();
         }
         function buttonDownPressed() {
-        }
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+            ctx.fillStyle = '#000000';
+            White_Y = White_Y + 20;
+            ctx.beginPath();
+            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
+            ctx.stroke();
 
+            var x = Math.floor(Math.random() * 4);
+            if (x == 0) {
+                Black_X = Black_X - 20;
+            }
+            else if (x == 1) {
+                Black_X = Black_X + 20;
+            }
+            else if (x == 2) {
+                Black_Y = Black_Y - 20;
+            }
+            else {
+                Black_Y = Black_Y + 20;
+            }
+            ctx.beginPath();
+            ctx.arc(Black_X, Black_Y, 5, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        if (White_X == Black_X && White_Y == Black_Y) {
+            var text = 'CLEAR!!';
+            document.getElementById('result').innerText = text;
+        }
 
     </script>
 </head>
@@ -52,6 +127,7 @@
         <button style="position:absolute; left: 50px; top: 15px;" onclick="buttonRightPressed()">→</button>
         <button style="position:absolute; left: 30px; top: 30px;" onclick="buttonDownPressed()">↓</button>
     </div>
+    <label style="position:absolute; left: 150px; top: 25px;" id='result' type="text">挑戦中!</label>
     <hr>
     <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
 </body>
