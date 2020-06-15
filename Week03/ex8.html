@@ -1,0 +1,46 @@
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <script>
+        function buttonPressed() {
+
+            var sum = 0;
+            var a = document.getElementById('input-8').value;
+            if (a == 1) sum = sum + 8;
+            var b = document.getElementById('input-4').value;
+            if (b == 1) sum = sum + 4;
+            var c = document.getElementById('input-2').value;
+            if (c == 1) sum = sum + 2;
+            var d = document.getElementById('input-1').value;
+            if (d == 1) sum = sum + 1;
+            document.getElementById('output').value = sum;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>課題11-C：2進数から10進数に変換</h1>
+    <select id="input-8">
+        <option value="0">0</option>
+        <option value="1">1</option>
+    </select>
+    <select id="input-4">
+        <option value="0">0</option>
+        <option value="1">1</option>
+    </select>
+    <select id="input-2">
+        <option value="0">0</option>
+        <option value="1">1</option>
+    </select>
+    <select id="input-1">
+        <option value="0">0</option>
+        <option value="1">1</option>
+    </select>
+    <button onclick="buttonPressed()">変換</button>
+    <hr>
+    <input id="output" type="text">
+
+</body>
+
+</html>
