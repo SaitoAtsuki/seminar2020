@@ -4,17 +4,29 @@
     <meta charset="utf-8" />
     <script>
         var img01 = new Image();
-        img01.src = "public/apple.png"
-        //  img01.src = document.getElementById('apple-img').value;
-        // var img02 = new Image();
-        // img02.src = "public/orange.png"
+        img01.src = "apple.png";
+        var img02 = new Image();
+        img02.src = "orange.png";
+
         function buttonAPressed() {
             console.log('clicked')
-
             var ctx = document.getElementById('canvas1').getContext('2d');
             ctx.clearRect(0, 0, 400, 300);
-            console.log(img01);
-            ctx.drawImage(img01, 10, 10, 100, 100);
+            var text = document.getElementById('input-word').value;
+            ctx.font = "30px sans-serif";
+
+            if (text == 'りんご') {
+                console.log(img01);
+                ctx.drawImage(img01, 20, 20, 100, 100);
+            }
+            else if (text == 'みかん') {
+                console.log(img02);
+                ctx.drawImage(img02, 20, 20, 100, 100);
+            }
+            else {
+                ctx.fillText('みつかりませんでした', 40, 80, 200);
+            }
+
         }
     </script>
 </head>
@@ -25,8 +37,8 @@
     <hr>
     <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
 
-    <img src="public/apple.png" id="apple-img" style="display: none" />
-    <img src="public/orange.png" id="orange-img" style="display: none" />
+    <!-- <img src="public/apple.png" id="apple-img" style="display: none" />
+    <img src="public/orange.png" id="orange-img" style="display: none" /> -->
 </body>
 
 </html>
