@@ -1,0 +1,199 @@
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <script>
+        var White_X = 170;
+        var White_Y = 150;
+        var Black_X = 210;
+        var Black_Y = 150;
+        var step = 0;
+        function buttonUpPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+            ctx.fillStyle = '#000000';
+            if (White_Y - 20 < 0) White_Y = 10;
+            else White_Y = White_Y - 20;
+            ctx.beginPath();
+            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
+            ctx.stroke();
+
+            var x = Math.floor(Math.random() * 4);
+            if (x == 0) {
+                if (Black_X - 20 < 0) Black_X = 10;
+                else Black_X = Black_X - 20;
+            }
+            else if (x == 1) {
+                if (Black_X + 20 > 400) Black_X = 390;
+                else Black_X = Black_X + 20;
+            }
+            else if (x == 2) {
+                if (Black_Y - 20 < 0) Black_Y = 10;
+                else Black_Y = Black_Y - 20;
+            }
+            else {
+                if (Black_Y + 20 > 300) Black_Y = 290;
+                else Black_Y = Black_Y + 20;
+            }
+            ctx.beginPath();
+            ctx.arc(Black_X, Black_Y, 5, 0, Math.PI * 2);
+            ctx.fill();
+            step = step + 1;
+            if (White_X == Black_X && White_Y == Black_Y) {
+                var text = 'CLEAR!!';
+                document.getElementById('result').innerHTML = text;
+            }
+            else
+                var text = 'NOT CLEAR…';
+            document.getElementById('result').innerHTML = text;
+
+            document.getElementById('times').innerHTML = step + '回';
+
+        }
+        function buttonLeftPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+            ctx.fillStyle = '#000000';
+            if (White_X - 20 < 0) White_X = 10;
+            else White_X = White_X - 20;
+            ctx.beginPath();
+            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
+            ctx.stroke();
+
+            var x = Math.floor(Math.random() * 4);
+            if (x == 0) {
+                if (Black_X - 20 < 0) Black_X = 10;
+                else Black_X = Black_X - 20;
+            }
+            else if (x == 1) {
+                if (Black_X + 20 > 400) Black_X = 390;
+                else Black_X = Black_X + 20;
+            }
+            else if (x == 2) {
+                if (Black_Y - 20 < 0) Black_Y = 10;
+                else Black_Y = Black_Y - 20;
+            }
+            else {
+                if (Black_Y + 20 > 300) Black_Y = 290;
+                else Black_Y = Black_Y + 20;
+            }
+            ctx.beginPath();
+            ctx.arc(Black_X, Black_Y, 5, 0, Math.PI * 2);
+            ctx.fill();
+            step = step + 1;
+
+            if (White_X == Black_X && White_Y == Black_Y) {
+                var text = 'CLEAR!!';
+                document.getElementById('result').innerHTML = text;
+            }
+            else
+                var text = 'NOT CLEAR…';
+            document.getElementById('result').innerHTML = text;
+
+            document.getElementById('times').innerHTML = step + '回';
+        }
+        function buttonRightPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+            ctx.fillStyle = '#000000';
+            if (White_X + 20 > 400) White_X = 390;
+            else White_X = White_X + 20;
+            ctx.beginPath();
+            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
+            ctx.stroke();
+
+            var x = Math.floor(Math.random() * 4);
+            if (x == 0) {
+                if (Black_X - 20 < 0) Black_X = 10;
+                else Black_X = Black_X - 20;
+            }
+            else if (x == 1) {
+                if (Black_X + 20 > 400) Black_X = 390;
+                else Black_X = Black_X + 20;
+            }
+            else if (x == 2) {
+                if (Black_Y - 20 < 0) Black_Y = 10;
+                else Black_Y = Black_Y - 20;
+            }
+            else {
+                if (Black_Y + 20 > 300) Black_Y = 290;
+                else Black_Y = Black_Y + 20;
+            }
+            ctx.beginPath();
+            ctx.arc(Black_X, Black_Y, 5, 0, Math.PI * 2);
+            ctx.fill();
+            step = step + 1;
+
+            if (White_X == Black_X && White_Y == Black_Y) {
+                var text = 'CLEAR!!';
+                document.getElementById('result').innerHTML = text;
+            }
+            else
+                var text = 'NOT CLEAR…';
+            document.getElementById('result').innerHTML = text;
+
+            document.getElementById('times').innerHTML = step + '回';
+        }
+        function buttonDownPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+            ctx.fillStyle = '#000000';
+            if (White_Y + 20 > 300) White_Y = 290;
+            else White_Y = White_Y + 20;
+            ctx.beginPath();
+            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
+            ctx.stroke();
+
+            var x = Math.floor(Math.random() * 4);
+            if (x == 0) {
+                if (Black_X - 20 < 0) Black_X = 10;
+                else Black_X = Black_X - 20;
+            }
+            else if (x == 1) {
+                if (Black_X + 20 > 400) Black_X = 390;
+                else Black_X = Black_X + 20;
+            }
+            else if (x == 2) {
+                if (Black_Y - 20 < 0) Black_Y = 10;
+                else Black_Y = Black_Y - 20;
+            }
+            else {
+                if (Black_Y + 20 > 300) Black_Y = 290;
+                else Black_Y = Black_Y + 20;
+            }
+            ctx.beginPath();
+            ctx.arc(Black_X, Black_Y, 5, 0, Math.PI * 2);
+            ctx.fill();
+            step = step + 1;
+
+            if (White_X == Black_X && White_Y == Black_Y) {
+                var text = 'CLEAR!!';
+                document.getElementById('result').innerHTML = text;
+            }
+            else
+                var text = 'NOT CLEAR…';
+            document.getElementById('result').innerHTML = text;
+
+            document.getElementById('times').innerHTML = step + '回';
+        }
+
+    </script>
+</head>
+
+<body>
+    <div style="position:relative; height:50px;">
+        <button style="position:absolute; left: 30px; top: 0px;" onclick="buttonUpPressed()">↑</button>
+        <button style="position:absolute; left: 10px; top: 15px;" onclick="buttonLeftPressed()">←</button>
+        <button style="position:absolute; left: 50px; top: 15px;" onclick="buttonRightPressed()">→</button>
+        <button style="position:absolute; left: 30px; top: 30px;" onclick="buttonDownPressed()">↓</button>
+        <label style="position:absolute; left: 250px; top: 15px;" id='result' type="text">挑戦中!</label>
+        <label style="position:absolute; left: 400px; top: 15px;" id='times' type="text">記録</label>
+    </div>
+
+
+
+    <hr>
+    <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
+</body>
+
+</html>
