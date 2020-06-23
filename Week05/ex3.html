@@ -1,0 +1,77 @@
+<html>
+
+<head>
+    <script>
+
+        var timer;
+        var x = 0;
+        var state = '停止中';
+
+        var min = 0;
+
+        function buttonAPressed() {
+            if (state == '停止中') {
+                timer = setInterval(tick, 1000);
+                state = '動作中';
+            }
+        }
+
+        function buttonBPressed() {
+            if (state == '動作中')
+                clearInterval(timer);
+            state = '停止中';
+        }
+
+        function buttonMinUpPressed() {
+            min = min + 1;
+            document.getElementById('min').innerHTML = min;
+        }
+
+        function buttonMinDownPressed() {
+            if (min > 0)
+                min = min - 1;
+            document.getElementById('min').innerHTML = min;
+        }
+
+        function tick() {
+            x = x + 1;
+            var n = (min * 60 + 5) - x;
+            var sec = 5 - x;
+            // var ShowMin = (min * 60 + 5) - x;
+            // var ShowSec = 5 - x;
+
+            // if (ShowSec == 0) {
+            //     ShowMin = ShowMin - 1;
+            //     ShowSec = 0;
+
+            if (sec == 0) {
+                min = min - 1
+                sec = 9;
+            }
+
+            document.getElementById('min').innerHTML = min;
+            document.getElementById('sec').innerHTML = sec;
+
+            if (n == 0) {
+                var ctx = document.getElementById('canvas1').getContext('2d');
+                ctx.clearRect(0, 0, 400, 300);
+                ctx.font = "30px sans-serif";
+                ctx.fillText('時間です！', 50, 100, 250);
+                clearInterval(timer);
+                // state = '停止中';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <span id="min">1</span>:<span id="sec">5</span>
+    <button onclick="buttonAPressed()">Start</button>
+    <button onclick="buttonBPressed()">Stop</button>
+    <button onclick="buttonMinUpPressed()">Min+</button>
+    <button onclick="buttonMinDownPressed()">Min-</button>
+    <hr>
+    <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
+</body>
+
+</html>
