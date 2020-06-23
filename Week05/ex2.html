@@ -27,7 +27,8 @@
                 ctx.clearRect(0, 0, 400, 300);
                 ctx.font = "30px sans-serif";
                 ctx.fillText('時間です！', 50, 100, 250);
-                state = '停止中';
+                clearInterval(timer);
+                // state = '停止中';
             }
         }
     </script>
