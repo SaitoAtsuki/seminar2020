@@ -4,11 +4,9 @@
     <script>
 
         var timer;
-        var x = 0;
         var state = '停止中';
-
-        var min = 0;
-
+        var min = 1;
+        var time = 65;
         function buttonAPressed() {
             if (state == '停止中') {
                 timer = setInterval(tick, 1000);
@@ -24,42 +22,34 @@
 
         function buttonMinUpPressed() {
             min = min + 1;
+            time = min * 60 + 5;
             document.getElementById('min').innerHTML = min;
         }
 
         function buttonMinDownPressed() {
             if (min > 0)
                 min = min - 1;
+            time = min * 60 + 5;
             document.getElementById('min').innerHTML = min;
         }
 
         function tick() {
-            x = x + 1;
-            var n = (min * 60 + 5) - x;
-            var sec = 5 - x;
-            // var ShowMin = (min * 60 + 5) - x;
-            // var ShowSec = 5 - x;
+            time = time - 1;
+            var sec = time % 60;
 
-            // if (ShowSec == 0) {
-            //     ShowMin = ShowMin - 1;
-            //     ShowSec = 0;
-
-            if (sec == 0) {
-                min = min - 1
-                sec = 9;
-            }
-
-            document.getElementById('min').innerHTML = min;
-            document.getElementById('sec').innerHTML = sec;
-
-            if (n == 0) {
+            if (time == 0) {
                 var ctx = document.getElementById('canvas1').getContext('2d');
                 ctx.clearRect(0, 0, 400, 300);
                 ctx.font = "30px sans-serif";
                 ctx.fillText('時間です！', 50, 100, 250);
                 clearInterval(timer);
-                // state = '停止中';
             }
+            else if (time % 60 == 0) {
+                min = min - 1
+                sec = 59;
+            }
+            document.getElementById('min').innerHTML = min;
+            document.getElementById('sec').innerHTML = sec;
         }
     </script>
 </head>

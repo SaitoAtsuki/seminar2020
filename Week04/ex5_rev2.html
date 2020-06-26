@@ -8,11 +8,16 @@
         var Black_X = 210;
         var Black_Y = 150;
         var step = 0;
+
         function buttonUpPressed() {
-            Preparet();
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+            ctx.fillStyle = '#000000';
             if (White_Y - 20 < 0) White_Y = 10;
             else White_Y = White_Y - 20;
-            WhiteDraw();
+            ctx.beginPath();
+            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
+            ctx.stroke();
 
             var x = Math.floor(Math.random() * 4);
             if (x == 0) {
@@ -31,15 +36,21 @@
                 if (Black_Y + 20 > 300) Black_Y = 290;
                 else Black_Y = Black_Y + 20;
             }
-            BlackDraw();
+            ctx.beginPath();
+            ctx.arc(Black_X, Black_Y, 5, 0, Math.PI * 2);
+            ctx.fill();
             step = step + 1;
             Judge();
         }
         function buttonLeftPressed() {
-            Preparet();
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+            ctx.fillStyle = '#000000';
             if (White_X - 20 < 0) White_X = 10;
             else White_X = White_X - 20;
-            WhiteDraw();
+            ctx.beginPath();
+            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
+            ctx.stroke();
 
             var x = Math.floor(Math.random() * 4);
             if (x == 0) {
@@ -58,15 +69,21 @@
                 if (Black_Y + 20 > 300) Black_Y = 290;
                 else Black_Y = Black_Y + 20;
             }
-            BlackDraw();
+            ctx.beginPath();
+            ctx.arc(Black_X, Black_Y, 5, 0, Math.PI * 2);
+            ctx.fill();
             step = step + 1;
             Judge();
         }
         function buttonRightPressed() {
-            Preparet();
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+            ctx.fillStyle = '#000000';
             if (White_X + 20 > 400) White_X = 390;
             else White_X = White_X + 20;
-            WhiteDraw();
+            ctx.beginPath();
+            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
+            ctx.stroke();
 
             var x = Math.floor(Math.random() * 4);
             if (x == 0) {
@@ -85,15 +102,21 @@
                 if (Black_Y + 20 > 300) Black_Y = 290;
                 else Black_Y = Black_Y + 20;
             }
-            BlackDraw();
+            ctx.beginPath();
+            ctx.arc(Black_X, Black_Y, 5, 0, Math.PI * 2);
+            ctx.fill();
             step = step + 1;
             Judge();
         }
         function buttonDownPressed() {
-            Preparet();
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+            ctx.fillStyle = '#000000';
             if (White_Y + 20 > 300) White_Y = 290;
             else White_Y = White_Y + 20;
-            WhiteDraw();
+            ctx.beginPath();
+            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
+            ctx.stroke();
 
             var x = Math.floor(Math.random() * 4);
             if (x == 0) {
@@ -112,25 +135,11 @@
                 if (Black_Y + 20 > 300) Black_Y = 290;
                 else Black_Y = Black_Y + 20;
             }
-            BlackDraw();
-            step = step + 1;
-            Judge();
-        }
-
-        function WhiteDraw() {
-            ctx.beginPath();
-            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
-            ctx.stroke();
-        }
-        function Preparet() {
-            var ctx = document.getElementById('canvas1').getContext('2d');
-            ctx.clearRect(0, 0, 400, 300);
-            ctx.fillStyle = '#000000';
-        }
-        function BlackDraw() {
             ctx.beginPath();
             ctx.arc(Black_X, Black_Y, 5, 0, Math.PI * 2);
             ctx.fill();
+            step = step + 1;
+            Judge();
         }
         function Judge() {
             if (White_X == Black_X && White_Y == Black_Y) {
