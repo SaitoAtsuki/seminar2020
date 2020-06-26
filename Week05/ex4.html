@@ -47,12 +47,44 @@
         }
 
         function buttonUpPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+            ctx.fillStyle = '#000000';
+            if (White_Y - 20 < 0) White_Y = 10;
+            else White_Y = White_Y - 20;
+            ctx.beginPath();
+            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
+            ctx.stroke();
         }
         function buttonRightPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+            ctx.fillStyle = '#000000';
+            if (White_X - 20 < 0) White_X = 10;
+            else White_X = White_X - 20;
+            ctx.beginPath();
+            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
+            ctx.stroke();
         }
         function buttonLeftPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+            ctx.fillStyle = '#000000';
+            if (White_X + 20 > 400) White_X = 390;
+            else White_X = White_X + 20;
+            ctx.beginPath();
+            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
+            ctx.stroke();
         }
         function buttonDownPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+            ctx.fillStyle = '#000000';
+            if (White_Y + 20 > 300) White_Y = 290;
+            else White_Y = White_Y + 20;
+            ctx.beginPath();
+            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
+            ctx.stroke();
         }
 
     </script>
