@@ -22,7 +22,7 @@
 
         function tick() {
             var ctx = document.getElementById('canvas1').getContext('2d');
-            ctx.clearRect(0, 0, 400, 300);
+            ctx.clearRect(Black_X - 6, Black_Y - 6, Black_X + 6, Black_Y + 6);
             ctx.fillStyle = '#000000';
             var x = Math.floor(Math.random() * 4);
             if (x == 0) {
@@ -44,49 +44,66 @@
             ctx.beginPath();
             ctx.arc(Black_X, Black_Y, 5, 0, Math.PI * 2);
             ctx.fill();
+            Judge();
         }
 
         function buttonUpPressed() {
             var ctx = document.getElementById('canvas1').getContext('2d');
-            ctx.clearRect(0, 0, 400, 300);
+            ctx.clearRect(White_X - 6, White_Y - 6, White_X + 6, White_Y + 6);
             ctx.fillStyle = '#000000';
             if (White_Y - 20 < 0) White_Y = 10;
             else White_Y = White_Y - 20;
             ctx.beginPath();
             ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
             ctx.stroke();
+            Judge();
         }
         function buttonRightPressed() {
             var ctx = document.getElementById('canvas1').getContext('2d');
-            ctx.clearRect(0, 0, 400, 300);
-            ctx.fillStyle = '#000000';
-            if (White_X - 20 < 0) White_X = 10;
-            else White_X = White_X - 20;
-            ctx.beginPath();
-            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
-            ctx.stroke();
-        }
-        function buttonLeftPressed() {
-            var ctx = document.getElementById('canvas1').getContext('2d');
-            ctx.clearRect(0, 0, 400, 300);
+            ctx.clearRect(White_X - 6, White_Y - 6, White_X + 6, White_Y + 6);
             ctx.fillStyle = '#000000';
             if (White_X + 20 > 400) White_X = 390;
             else White_X = White_X + 20;
             ctx.beginPath();
             ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
             ctx.stroke();
+            Judge();
+        }
+        function buttonLeftPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(White_X - 6, White_Y - 6, White_X + 6, White_Y + 6);
+            ctx.fillStyle = '#000000';
+            if (White_X - 20 < 0) White_X = 10;
+            else White_X = White_X - 20;
+            ctx.beginPath();
+            ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
+            ctx.stroke();
+            Judge();
         }
         function buttonDownPressed() {
             var ctx = document.getElementById('canvas1').getContext('2d');
-            ctx.clearRect(0, 0, 400, 300);
+            ctx.clearRect(White_X - 6, White_Y - 6, White_X + 6, White_Y + 6);
             ctx.fillStyle = '#000000';
             if (White_Y + 20 > 300) White_Y = 290;
             else White_Y = White_Y + 20;
             ctx.beginPath();
             ctx.arc(White_X, White_Y, 5, 0, Math.PI * 2);
             ctx.stroke();
+            Judge();
         }
 
+        function Judge() {
+            if (White_X == Black_X && White_Y == Black_Y) {
+                var text = 'CLEAR!!';
+                document.getElementById('result').innerHTML = text;
+                clearInterval(timer);
+                state = '停止中';
+            }
+            else
+                var text = 'NOT CLEAR…';
+            document.getElementById('result').innerHTML = text;
+            //  document.getElementById('times').innerHTML = step + '回';
+        }
     </script>
 </head>
 
@@ -97,6 +114,7 @@
         <button style="position:absolute; left: 10px; top: 15px;" onclick="buttonLeftPressed()">←</button>
         <button style="position:absolute; left: 50px; top: 15px;" onclick="buttonRightPressed()">→</button>
         <button style="position:absolute; left: 30px; top: 30px;" onclick="buttonDownPressed()">↓</button>
+        <label style="position:absolute; left: 250px; top: 15px;" id='result' type="text">挑戦中!</label>
     </div>
     <hr>
     <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>

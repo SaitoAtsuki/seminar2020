@@ -1,0 +1,93 @@
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <script>
+        var x = 100;
+        var y = 100;
+        var ex = 200;
+        var ey = 200;
+        var state = '停止中';
+        window.onload = function () {
+            window.setInterval(function () {
+                moveEnemy();
+                update();
+                Judge();
+            }, 500);
+        }
+        function buttonDownPressed() {
+            y = y + 10;
+            // moveEnemy();
+            update();
+            Judge();
+        }
+        function buttonRightPressed() {
+            x = x + 10;
+            // moveEnemy();
+            update();
+            Judge();
+        }
+        function buttonLeftPressed() {
+            x = x - 10;
+            // moveEnemy();
+            update();
+            Judge();
+        }
+        function buttonUpPressed() {
+            y = y - 10;
+            // moveEnemy();
+            update();
+            Judge();
+        }
+        function moveEnemy() {
+            var ran = Math.floor(Math.random() * 4);
+            if (ran == 0) {
+                ex = ex + 10;
+            } else if (ran == 1) {
+                ex = ex - 10;
+            } else if (ran == 2) {
+                ey = ey + 10;
+            } else if (ran == 3) {
+                ey = ey - 10;
+            }
+        }
+        function update() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+            ctx.strokeStyle = '#000000';
+            ctx.beginPath();
+            ctx.arc(x, y, 5, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.fillStyle = '#000000';
+            ctx.beginPath();
+            ctx.arc(ex, ey, 5, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        function Judge() {
+            if (x == ex && y == ey) {
+                var text = 'CLEAR!!';
+                document.getElementById('result').innerHTML = text;
+                clearInterval(timer);
+                state = '停止中';
+            }
+            else
+                var text = 'NOT CLEAR…';
+            document.getElementById('result').innerHTML = text;
+        }
+    </script>
+</head>
+
+<body>
+    <div style="position:relative; height:50px;">
+        <button style="position:absolute; left: 35px; top: 0px;" onclick="buttonUpPressed()">↑</button>
+        <button style="position:absolute; left: 10px; top: 20px;" onclick="buttonLeftPressed()">←</button>
+        <button style="position:absolute; left: 50px; top: 20px;" onclick="buttonRightPressed()">→</button>
+        <button style="position:absolute; left: 35px; top: 40px;" onclick="buttonDownPressed()">↓</button>
+        <label style="position:absolute; left: 250px; top: 15px;" id='result' type="text">挑戦中!</label>
+    </div>
+    <hr>
+    <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
+</body>
+
+</html>

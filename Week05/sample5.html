@@ -26,6 +26,19 @@
             document.getElementById('output-sec').innerHTML = sec;
             document.getElementById('output-oneof10sec').innerHTML = oneof10sec;
         }
+
+        function Judge() {
+            if (White_X == Black_X && White_Y == Black_Y) {
+                var text = 'CLEAR!!';
+                document.getElementById('result').innerHTML = text;
+            }
+            else
+                var text = 'NOT CLEAR…';
+            document.getElementById('result').innerHTML = text;
+
+
+            //     document.getElementById('times').innerHTML = step + '回';
+        }
     </script>
 </head>
 
